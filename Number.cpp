@@ -110,7 +110,7 @@ void Number::operator = (const Number& A)
 /**************************************************************
 ±È½Ï
 **************************************************************/
-bool operator <(Number& A,Number& B)
+bool operator <(const Number& A,const Number& B)
 {
 	if(A.length>B.length)
 		return false;
@@ -128,93 +128,93 @@ bool operator <(Number& A,Number& B)
 	return 0;	// if A == B
 }
 
-bool operator <(unsigned long A,Number& B)
+bool operator <(unsigned long A,const Number& B)
 {
 	if(B.length>1) 
 		return true;
 	return A < B.num[0];
 }
 
-bool operator <(Number& A,unsigned long B)
+bool operator <(const Number& A,unsigned long B)
 {
 	if(A.length > 1)
 	       	return false;
 	return A.num[0]<B;
 }
 
-bool operator >(Number& A,Number& B)
+bool operator >(const Number& A,const Number& B)
 {
 	return B<A;
 }
 
-bool operator >(unsigned long A,Number& B)
+bool operator >(unsigned long A,const Number& B)
 {
 	return B<A;
 }
 
-bool operator >(Number& A,unsigned long B)
+bool operator >(const Number& A,unsigned long B)
 {
 	return B<A;
 }
 
-bool operator ==(Number& A,Number& B)
+bool operator ==(const Number& A,const Number& B)
 {
 	if( A<B == false && A>B == false)
 		return true;
 	return false;
 }
-bool operator ==(unsigned long A,Number& B)
+bool operator ==(unsigned long A,const Number& B)
 {
 	if(B.length > 1)
 	       	return false;
 	return A==B.num[0];
 }
 
-bool operator ==(Number& A,unsigned long B)
+bool operator ==(const Number& A,unsigned long B)
 {
 	return B == A;
 }
 
-bool operator <=(Number& A,Number& B)
+bool operator <=(const Number& A,const Number& B)
 {
 	return !(A>B);
 }
-bool operator <=(unsigned long A,Number& B)
-{
-	return !(A>B);
-}
-
-bool operator <=(Number& A,unsigned long B)
+bool operator <=(unsigned long A,const Number& B)
 {
 	return !(A>B);
 }
 
-bool operator >=(Number& A,Number& B)
+bool operator <=(const Number& A,unsigned long B)
+{
+	return !(A>B);
+}
+
+bool operator >=(const Number& A,const Number& B)
 {
 	return !(A<B);
 }
 
-bool operator >=(unsigned long A,Number& B)
+bool operator >=(unsigned long A,const Number& B)
 {
 	return !(A<B);
 }
 
-bool operator >=(Number& A,unsigned long B)
+bool operator >=(const Number& A,unsigned long B)
 {
 	return !(A<B);
 }
 
-bool operator !=(Number& A,Number& B)
+bool operator !=(const Number& A,const Number& B)
 {
 	return !(A==B);
 }
 
-bool operator !=(unsigned long A,Number& B)
+bool operator !=(unsigned long A,const Number& B)
 {
 	return !(A==B);
 }
 
-bool operator !=(Number& A,unsigned long B)
+bool operator !=(const Number& A,unsigned long B)
 {
 	return !(A==B);
 }
@@ -222,7 +222,7 @@ bool operator !=(Number& A,unsigned long B)
 /**************************************************************
  * operation add
 **************************************************************/
-Number operator +(Number& A,Number& B)
+Number operator +(const Number& A,const Number& B)
 {
 	Number X;
 	X=B;
@@ -246,13 +246,13 @@ Number operator +(Number& A,Number& B)
 	return X;
 }
 
-Number operator +(unsigned long A,Number& B)
+Number operator +(unsigned long A,const Number& B)
 {
 	Number sum = A;
 	return sum+B;
 }
 
-Number operator +(Number& A,unsigned long B)
+Number operator +(const Number& A,unsigned long B)
 {
 	Number sum = B;
 	return sum+A;
@@ -261,7 +261,7 @@ Number operator +(Number& A,unsigned long B)
 /**************************************************************
  * operation subtraction
 **************************************************************/
-Number operator -(Number& B,Number& A)
+Number operator -(const Number& B,const Number& A)
 {
 	Number X;
 	X=B;
@@ -294,13 +294,13 @@ Number operator -(Number& B,Number& A)
 	return X;
 }
 
-Number operator -(unsigned long A,Number& B)
+Number operator -(unsigned long A,const Number& B)
 {
 	Number C = A;
 	return C-B;
 }
 
-Number operator -(Number& B,unsigned long A)
+Number operator -(const Number& B,unsigned long A)
 {
 	Number X;
 	X=B;
@@ -316,7 +316,7 @@ Number operator -(Number& B,unsigned long A)
 		return X;
 	}
 
-	unsigned __int64 tmp=0x100000000+X.num[0];
+	unsigned long long tmp=0x100000000+X.num[0];
 	X.num[0]=(unsigned long)(tmp-A);
 
 	unsigned i=1;
@@ -330,13 +330,13 @@ Number operator -(Number& B,unsigned long A)
 /**************************************************************
  * multiplication
 **************************************************************/
-Number operator *(Number& A,Number& B)
+Number operator *(const Number& A,const Number& B)
 {
 	if(A.length==1) return B*A.num[0];
 
 	Number X;
 	X=B;
-	unsigned __int64 mul,flag=0,sum;
+	unsigned long long mul,flag=0,sum;
 	unsigned i,j;
 
 	X.length=B.length+A.length-1;
@@ -366,11 +366,11 @@ Number operator *(Number& A,Number& B)
 	return X;
 }
 
-Number operator *(unsigned long A,Number& B)
+Number operator *(unsigned long A,const Number& B)
 {
 	Number X;
 	X=B;
-	unsigned __int64 mul;
+	unsigned long long mul;
 	unsigned long flag=0;
 	for(unsigned i=0;i<X.length;i++)
 	{
@@ -385,7 +385,7 @@ Number operator *(unsigned long A,Number& B)
 	return X;
 }
 
-Number operator *(Number& A,unsigned long B)
+Number operator *(const Number& A,unsigned long B)
 {
 	return B*A;
 }
@@ -393,12 +393,12 @@ Number operator *(Number& A,unsigned long B)
 /**************************************************************
  * division
 **************************************************************/
-Number operator /(Number& B,Number& A)
+Number operator /(const Number& B,const Number& A)
 {
 	if(A.length==1) return B/(A.num[0]);
 	Number X,Y,Z;
 	unsigned i,len;
-	unsigned __int64 num,div;
+	unsigned long long num,div;
 	Y=B;
 	while(Y>=A)
 	{
@@ -428,14 +428,14 @@ Number operator /(Number& B,Number& A)
 	return X;
 }
 
-Number operator /(unsigned long A,Number& B)
+Number operator /(unsigned long A,const Number& B)
 {
 	Number C;
 	C=A;
 	return C/B;
 }
 
-Number operator /(Number& B,unsigned long A)
+Number operator /(const Number& B,unsigned long A)
 {
 	Number X;
 	X=B;
@@ -461,10 +461,10 @@ Number operator /(Number& B,unsigned long A)
 /***********************************************
  * operation mod
 ***********************************************/
-Number operator %(Number& B,Number& A)
+Number operator %(const Number& B,const Number& A)
 {
 	Number X,Y;
-	unsigned __int64 div,num;
+	unsigned long long div,num;
     unsigned long carry=0;
 	unsigned i,len;
     X=B;
@@ -489,7 +489,7 @@ Number operator %(Number& B,Number& A)
     return X;
 }
 
-unsigned long operator %(unsigned long A,Number& B)
+unsigned long operator %(unsigned long A,const Number& B)
 {
 	if(B>A) return A;
 	else if(B==A) return 0;
@@ -497,10 +497,10 @@ unsigned long operator %(unsigned long A,Number& B)
 		return A%B.num[0];
 }
 
-unsigned long operator %(Number& B,unsigned long A)
+unsigned long operator %(const Number& B,unsigned long A)
 {
 	if(B.length==1) return(B.num[0]%A);
-    unsigned __int64 div;
+    unsigned long long div;
     unsigned long carry=0;
     for(int i=B.length-1;i>=0;i--)
     {

@@ -1,0 +1,22 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#   (use "git rm --cached <file>..." to unstage)
+#
+#	new file:   Key.h
+#	new file:   Number.cpp
+#	new file:   Number.h
+#	new file:   RSAKeyProducer.cpp
+#	new file:   RSAKeyProducer.h
+#	new file:   RSASignature.cpp
+#	new file:   RSASignature.h
+#	new file:   main.cpp
+#	new file:   md5.cpp
+#	new file:   md5.h
+#
+

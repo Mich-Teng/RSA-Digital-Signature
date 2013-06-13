@@ -1,5 +1,6 @@
 #include "RSASignature.h"
 #include "md5.h"
+#include <stdlib.h>
 
 using namespace std;
 
@@ -57,7 +58,7 @@ void RSASignature::encrypt(const Number& SK,const Number& i_model,const std::str
 
 	if(token == 0)
 	{
-		printf("Error! model is not big enough");
+		cout << "Error! model is not big enough" << endl;
 		exit(1);
 	}
 	unsigned txtlen=md5_en.length(),start=0;               

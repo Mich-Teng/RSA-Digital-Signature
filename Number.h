@@ -25,49 +25,49 @@ public:
     void operator = (unsigned long A);
     void operator = (const Number& A);
 
-    friend bool operator <(Number& A,Number& B);
-    friend bool operator <(unsigned long A,Number& B);
-    friend bool operator <(Number& A,unsigned long B);
+    friend bool operator <(const Number& A,const Number& B);
+    friend bool operator <(unsigned long A,const Number& B);
+    friend bool operator <(const Number& A,unsigned long B);
 
-    friend bool operator >(Number& A,Number& B);
-    friend bool operator >(unsigned long A,Number& B);
-    friend bool operator >(Number& A,unsigned long B);
+    friend bool operator >(const Number& A,const Number& B);
+    friend bool operator >(unsigned long A,const Number& B);
+    friend bool operator >(const Number& A,unsigned long B);
 
-    friend bool operator ==(Number& A,Number& B);
-    friend bool operator ==(unsigned long A,Number& B);
-    friend bool operator ==(Number& A,unsigned long B);
+    friend bool operator ==(const Number& A,const Number& B);
+    friend bool operator ==(unsigned long A,const Number& B);
+    friend bool operator ==(const Number& A,unsigned long B);
 
-    friend bool operator <=(Number& A,Number& B);
-    friend bool operator <=(unsigned long A,Number& B);
-    friend bool operator <=(Number& A,unsigned long B);
+    friend bool operator <=(const Number& A,const Number& B);
+    friend bool operator <=(unsigned long A,const Number& B);
+    friend bool operator <=(const Number& A,unsigned long B);
 
-    friend bool operator >=(Number& A,Number& B);
-    friend bool operator >=(unsigned long A,Number& B);
-    friend bool operator >=(Number& A,unsigned long B);
+    friend bool operator >=(const Number& A,const Number& B);
+    friend bool operator >=(unsigned long A,const Number& B);
+    friend bool operator >=(const Number& A,unsigned long B);
 
-    friend bool operator !=(Number& A,Number& B);
-    friend bool operator !=(unsigned long A,Number& B);
-    friend bool operator !=(Number& A,unsigned long B);
+    friend bool operator !=(const Number& A,const Number& B);
+    friend bool operator !=(unsigned long A,const Number& B);
+    friend bool operator !=(const Number& A,unsigned long B);
 
-    friend Number operator +(Number& A,Number& B);
-    friend Number operator +(unsigned long A,Number& B);
-    friend Number operator +(Number& A,unsigned long B);
+    friend Number operator +(const Number& A,const Number& B);
+    friend Number operator +(unsigned long A,const Number& B);
+    friend Number operator +(const Number& A,unsigned long B);
 
-    friend Number operator -(Number& A,Number& B);
-    friend Number operator -(unsigned long A,Number& B);
-    friend Number operator -(Number& A,unsigned long B);
+    friend Number operator -(const Number& A,const Number& B);
+    friend Number operator -(unsigned long A,const Number& B);
+    friend Number operator -(const Number& A,unsigned long B);
 
-    friend Number operator *(Number& A,Number& B);
-    friend Number operator *(unsigned long A,Number& B);
-    friend Number operator *(Number& A,unsigned long B);
+    friend Number operator *(const Number& A,const Number& B);
+    friend Number operator *(unsigned long A,const Number& B);
+    friend Number operator *(const Number& A,unsigned long B);
 
-    friend Number operator /(Number& A,Number& B);
-    friend Number operator /(unsigned long A,Number& B);
-    friend Number operator /(Number& A,unsigned long B);
+    friend Number operator /(const Number& A,const Number& B);
+    friend Number operator /(unsigned long A,const Number& B);
+    friend Number operator /(const Number& A,unsigned long B);
 
-    friend Number operator %(Number& A,Number& B);
-    friend unsigned long operator %(unsigned long A,Number& B);
-    friend unsigned long operator %(Number& A,unsigned long B);
+    friend Number operator %(const Number& A,const Number& B);
+    friend unsigned long operator %(unsigned long A,const Number& B);
+    friend unsigned long operator %(const Number& A,unsigned long B);
 
 /*****************************************************************
 ÊäÈëÊä³ö
