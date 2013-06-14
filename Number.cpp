@@ -7,7 +7,8 @@
 #include <stdlib.h>
 #include <math.h>
 #include <string>
-
+#include <sys/timeb.h>
+#include <iostream>
 using namespace std;
 
 const static int PrimeTable[551]=
@@ -701,7 +702,6 @@ void Number::GetNum(int bits)
 	int len=bits;
 	int rlen= len % 32;
 	len = (len-1)/32;
-	
 
 	Number M;
 	M.length=(int)len+1;

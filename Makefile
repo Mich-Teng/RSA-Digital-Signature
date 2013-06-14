@@ -15,3 +15,6 @@ RSAKeyProducer.o : RSAKeyProducer.cpp
 
 RSASignature.o : RSASignature.cpp md5.h
 	g++ -c RSASignature.cpp
+
+clean :
+	rm RSA main.o md5.o Number.o RSAKeyProducer.o RSASignature.o

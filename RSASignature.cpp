@@ -1,11 +1,12 @@
 #include "RSASignature.h"
 #include "md5.h"
 #include <stdlib.h>
-
+#include <time.h>
 using namespace std;
 
 RSASignature::RSASignature()
 {
+	srand((int)time(0));
 	key_bit_length = 10;
 }
 void RSASignature::encryptSign(const Key& s_SK,const Key& r_PK ,const std::string& text,std::string& signature)

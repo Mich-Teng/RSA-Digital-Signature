@@ -12,7 +12,6 @@ int main() {
 	RSAKeyProducer t(32),q(32);
 	t.produceKey(t_PK,t_SK);    // generate sender's key
 	q.produceKey(q_PK,q_SK);	// generate receiver's key
-
 	RSASignature w;
 	string sign;
 	string md5;
